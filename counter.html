@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .add{
+            color:green;
+        }
+        .lower{
+            color:red;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(199, 146, 0); display:flex; align-items: center; justify-content:center; height:100vh;">
+
+    <div style="display:flex; flex-direction: column; text-align: center;">
+        <p style="font-size: 2em;">Counter</p>
+        <p class="counterDisplay" style="font-size: 2em;">0</p>
+        <button class="btn-add" style="margin:1em; padding:1em;">ADD COUNT</button>
+        <button class="btn-lower" style="margin:1em; padding:1em;">LOWER COUNT</button>
+    </div>
+    
+
+    <script>
+
+
+
+        let button = document.querySelectorAll("button");
+        let addBtn = document.querySelector(".btn-add");
+        let lowerBtn = document.querySelector(".btn-lower");
+        let counterDisplay = document.querySelector(".counterDisplay")
+        let counter = 0;
+
+        addBtn.addEventListener("click", addNumber)
+        lowerBtn.addEventListener("click", decreaseNumber)
+
+        // button.forEach(btn => {
+        //     console.log(btn)
+        // });
+
+        function addNumber(){
+            counter++
+            if(counter > 0 ){
+                counterDisplay.classList.add("add")
+                counterDisplay.classList.remove("lower")
+            }
+            if(counter === 0){
+                counterDisplay.classList.remove("lower")
+                counterDisplay.classList.remove("add")
+            }
+            console.log(counter)
+            counterDisplay.innerHTML = counter
+        }
+        function decreaseNumber(){
+            counter--
+            if(counter < 0 ){
+                counterDisplay.classList.add("lower")
+                counterDisplay.classList.remove("add")
+            }
+            if(counter === 0){
+                counterDisplay.classList.remove("lower")
+                counterDisplay.classList.remove("add")
+            }
+            console.log(counter)
+            counterDisplay.innerHTML = counter
+        }
+    </script>
+</body>
+</html>
